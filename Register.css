@@ -121,6 +121,8 @@
 .contact_social a:hover
 {
     background: transparent;
+    border: 2px solid var(--color-bg2);
+    border-radius: 50%;
 }
 
 /* CONTACT SECTION */
@@ -149,7 +151,7 @@ input, textarea
     width: 100%;
     padding: 1rem;
     background: var(--color-bg);
-    color: var(--color-white);
+    color: var(--color-black);
 }
 
 .contact_form .btn
