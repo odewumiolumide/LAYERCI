@@ -92,6 +92,17 @@
 
             <!-----------CONTACT SECTION END------------->
 
+            <!-- Registration Form 
+<form onsubmit="registerUser(document.getElementById('reg-username').value, document.getElementById('reg-password').value); return false;">
+    <input type="text" id="reg-name" placeholder="name" required>
+    <input type="text" id="reg-email" placeholder="email" required>
+    <input type="text" id="reg-username" placeholder="Username" required>
+    <input type="password" id="reg-password" placeholder="Password" required>
+    <input type="password" id="reg-confirmpassword" placeholder="confirmPassword" required>
+    <button type="submit">Register</button>
+    <a href="login.html">Alreday Have An Account / Login Here</a>
+</form> -->
+
 
             <!-----------FORM SECTION------------->
 
@@ -129,7 +140,8 @@
             </form>
 
         </div>
-    </section>
+    </section> 
+
 
     <!---------FOOTER SECTION------>
 
@@ -178,6 +190,8 @@
 <!---------Link to Javascrpit Page-->
 
 <script src="port.js"></script>
+
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.799.0.min.js"></script>
 
 
 </body>

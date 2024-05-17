@@ -46,5 +46,56 @@ window.addEventListener('scroll', () => {
  }
  
  closeBtn.addEventListener('click', closeNav)
+
+ AWS.config.update({
+    region: 'Us East (N.Viginia) us-east-1',
+    credentials: new AWS.CognitoIdentityCredentials({
+        IdentityPoolId: '9923-8258-4097',
+    })
+});
+
+var docClient = new AWS.DynamoDB.DocumentClient();
+
+
+function registerUser(username, password) {
+    var params = {
+        TableName: 'layerci-database',
+        Item: {
+            'name': name,
+            'email': email,
+            'username': username,
+            'password': password // In a real-world scenario, use a hashed password
+        }
+    };
+
+    docClient.put(params, function(err, data) {
+        if (err) {
+            console.error("Unable to add user", err);
+        } else {
+            console.log("User added successfully");
+        }
+    });
+}
+
+function loginUser(username, password) {
+    var params = {
+        TableName: 'layerci-database',
+        Key: {
+            'username': username
+        }
+    };
+
+    docClient.get(params, function(err, data) {
+        if (err) {
+            console.error("Unable to read user", err);
+        } else {
+            if (data.Item && data.Item.password === password) {
+                console.log("Login successful");
+            } else {
+                console.log("Invalid username or password");
+            }
+        }
+    });
+}
  
  
