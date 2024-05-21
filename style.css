@@ -616,6 +616,10 @@ footer
         margin-right: 0;
     }
 
+    .categories_right{
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
     .courses
     {
         margin-top: 0;
